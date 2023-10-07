@@ -8,21 +8,21 @@ import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.title;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-public class verifyComponent {
+public class VerifyComponent {
 
     SelenideElement articleTitlePage = $x("//h1[@class='article-head__title']");
 
-    public verifyComponent verifyUrl(String pageUrl){
+    public VerifyComponent verifyUrl(String pageUrl){
         webdriver().shouldHave(url(pageUrl));
         return this;
     }
 
-    public verifyComponent verifySiteTitle(String titleText){
+    public VerifyComponent verifySiteTitle(String titleText){
         webdriver().shouldHave(title(titleText));
         return this;
     }
 
-    public verifyComponent verifyPageArticleText(String titleText){
+    public VerifyComponent verifyPageArticleText(String titleText){
         articleTitlePage.shouldHave(text(titleText));
         return this;
     }

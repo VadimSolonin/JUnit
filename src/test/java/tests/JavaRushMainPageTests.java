@@ -7,20 +7,23 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import pages.JavaRushMainPage;
+import pages.components.VerifyComponent;
 
 import java.util.stream.Stream;
 
 
 @Tags({@Tag("UI"), @Tag("MainPage")})
 public class JavaRushMainPageTests extends TestBase {
-
+    JavaRushMainPage javaRushMainPage = new JavaRushMainPage();
+    VerifyComponent verifyComponent = new VerifyComponent();
 
     @CsvSource(value = {
             "QUESTS, https://javarush.com/quests",
             "TASKS, https://javarush.com/tasks",
             "QUIZZES, https://javarush.com/quizzes"
     })
-    @ParameterizedTest(name = "Открытие страницы {1} при клине на {0}")
+    @ParameterizedTest(name = "Открытие страницы {1} при клике на {0}")
     @Tag("Link")
     void openStudyGroupLinkTest(String target, String actualUrl) {
         javaRushMainPage.openPage();
