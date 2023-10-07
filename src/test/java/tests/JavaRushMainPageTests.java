@@ -22,7 +22,7 @@ public class JavaRushMainPageTests extends TestBase {
     })
     @ParameterizedTest(name = "Открытие страницы {1} при клине на {0}")
     @Tag("Link")
-    void openStudyGroupLink(String target, String actualUrl) {
+    void openStudyGroupLinkTest(String target, String actualUrl) {
         javaRushMainPage.openPage();
         javaRushMainPage.clickNavbarLinkByDataTarget(target);
         verifyComponent.verifyUrl(actualUrl);
@@ -31,7 +31,7 @@ public class JavaRushMainPageTests extends TestBase {
     @CsvFileSource(resources = "/communitySidebarValues.csv")
     @ParameterizedTest(name = "При нажатии на кнопку боковой панели {0} открывается страница с Заголовком {1}")
     @Tag("Link")
-    void openCommunityGroupLink(String value, String url) {
+    void openCommunityGroupLinkTest(String value, String url) {
         javaRushMainPage.openPage();
         javaRushMainPage.clickNavbarLinkBySearchingText(value);
         verifyComponent.verifySiteTitle(url);
@@ -47,7 +47,7 @@ public class JavaRushMainPageTests extends TestBase {
     @MethodSource("selenideButtonsTest")
     @ParameterizedTest(name = "При нажатии на кнопку навигации {0} открывается страница с заголовком {1} первого уровня")
     @Tag("Link")
-    void openHeaderNavLink(String navLink, String article) {
+    void openHeaderNavLinkTest(String navLink, String article) {
         javaRushMainPage.openPage();
         javaRushMainPage.clickHeaderLink(navLink);
         verifyComponent.verifyPageArticleText(article);
